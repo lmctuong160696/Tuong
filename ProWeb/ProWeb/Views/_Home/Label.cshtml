@@ -1,0 +1,16 @@
+﻿
+@using ProWeb.Models;
+@{
+    KHACHHANG kh = (KHACHHANG)Session["kh"];
+}
+@if(kh!=null)
+{
+    <li><a href="#">@kh.TENKH</a></li>
+    <li><a href="@Url.Action("Logout","_Home")">Đăng xuất</a></li>
+}
+else
+{
+    <li><a href="@Url.Action("Dangky","_Home")">Đăng ký</a></li>
+    <li><a href="@Url.Action("Login","_Home")">Đăng nhập</a></li>
+}
+

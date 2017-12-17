@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ProWeb.Models.LOAISP>
+    @foreach (var item in Model)
+    {
+        
+            <li class="active"><a href="@Url.Action("Category_Product","_Home",new { id = item.MALOAI})">@item.TENLOAI</a></li>
+        
+    }
+

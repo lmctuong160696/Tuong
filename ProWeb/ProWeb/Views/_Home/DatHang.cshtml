@@ -1,0 +1,83 @@
+﻿@using ProWeb.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+    KHACHHANG kh = (KHACHHANG)Session["kh"];
+}
+
+<div class="col-md-9 col-sm-9" style="margin-left:15%">
+    <h1 style="text-align:center">Thông tin đặt hàng</h1>
+    <div class="goods-page">
+        <div class="goods-data clearfix">
+            <div class="table-wrapper-responsive">
+                <table summary="Shopping cart">
+                    <tr>
+                        <th class="goods-page-image">Hình ảnh</th>
+                        <th class="goods-page-description">Thông tin</th>
+                        <th class="goods-page-price">Số lượng</th>
+                        <th class="goods-page-price">Đơn giá</th>
+                        <th class="goods-page-price">Tổng giá</th>
+                       
+                    </tr>
+                  @foreach(var item in Model)
+                  { 
+                        <tr>
+                            <td class="goods-page-image">
+                                <a href="javascript:;"><img src="/Content/web/img/@item.hinhanh" alt="Berry Lace Dress"></a>
+                            </td>
+                            <td class="goods-page-description">
+                                <h3><a href="javascript:;">@item.tensp</a></h3>
+                                <p><strong>Loại</strong>@item.loaisp</p>
+                                <p><strong>Thương hiệu</strong>@item.thuonghieu</p>
+
+                            </td>
+                           
+                                <td class="goods-page-quantity">
+                                    <div class="product-quantity">
+                                        @*<input name="txtsoluong" @*id="product-quantity" type="text" value="@item.soluong" @*readonly class="form-control input-sm">*@
+                                        <input name="txtsoluong" type="number" value="@item.soluong" style="width: 50px; height: 38px; color: #647484; padding: 5px; border: none; background: #edeff1 !important; font: 300 23px 'Open Sans', sans-serif; " />
+                                    </div>
+                                </td>
+
+                                <td class="goods-page-price">
+                                    <strong><span>@item.giasp VNĐ</span></strong>
+                                </td>
+                                <td class="goods-page-total">
+                                    <strong><span>@item.thanhtien VNĐ</span></strong>
+                                </td>
+                                
+                        </tr>
+                  }
+                    
+                    <tr>
+                        <td colspan="5" style="text-align:center;color:red"><h4>Tổng tiền: @ViewBag.Tongtien VNĐ</h4> </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="shopping-total" style="width:50%;margin-right:25%">
+                <ul>
+                    <li>
+                        <em>Tên khách hàng</em>
+                        <strong class="price" style="color: blue">@kh.TENKH</strong>
+                    </li>
+                    <li>
+                        <em>Ngày sinh</em>
+                        <strong class="price" style="color: blue">@kh.NGAYSINH</strong>
+                    </li>
+                    <li>
+                        <em>Địa chỉ</em>
+                        <strong class="price" style="color: blue">@kh.DIACHI</strong>
+                    </li>
+                    <li class="shopping-total-price">
+                        <em>Điện thoại</em>
+                        <strong class="price" style="color: blue">@kh.DIENTHOAI</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <a style="margin-bottom:10px;margin-right:50%" class="btn btn-primary" href="@Url.Action("LuuDDH","_Home")">Đặt hàng <i class="fa fa-check"></i></a>
+    </div>
+</div>

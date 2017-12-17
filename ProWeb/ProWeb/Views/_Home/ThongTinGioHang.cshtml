@@ -1,0 +1,33 @@
+﻿@using ProWeb.Models
+@model List<GioHang>
+
+<div class="top-cart-block" style="width:200px">
+    <div class="top-cart-info"  style="float:right;width:220px">
+        <a href="javascript:void(0);" class="top-cart-info-count">@ViewBag.Tongsoluong Sản phẩm</a>
+        <a href="javascript:void(0);" class="top-cart-info-value">@ViewBag.Tongtien VNĐ</a>
+    </div>
+    <i class="fa fa-shopping-cart"></i>
+
+    <div class="top-cart-content-wrapper" style="width:400px">
+        <div class="top-cart-content" style="width:400px">
+            <ul class="scroller" style="height: 250px; width:500px">
+                @foreach(var item in Model)
+                {
+                    
+                <li>
+                    <a href="shop-item.html"><img src="/Content/web/img/@item.hinhanh" alt="Rolex Classic Watch" width="37" height="34"></a>
+                    <span class="cart-content-count">@item.soluong</span>
+                    <strong><a href="">@item.tensp</a></strong>
+                    <em>@item.giasp</em>
+                    <a href="@Url.Action("XoaGiohang", "_Home", new { id = @item.masp })" class="btn btn-danger" >X</a>
+                </li>
+                }
+                
+            </ul>
+            <div class="text-right">
+                <a href="@Url.Action("Giohang","_Home")" class="btn btn-default">Xem giỏ hàng</a>
+                <a href="shop-checkout.html" class="btn btn-primary">Đặt hàng</a>
+            </div>
+        </div>
+    </div>
+</div>

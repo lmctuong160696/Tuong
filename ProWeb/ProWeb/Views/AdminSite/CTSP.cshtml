@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "CTSP";
+    Layout = "~/Views/Shared/_index.cshtml";
+}
+
+<div id="content" class="col-lg-12 col-sm-12">
+    <!-- content starts -->
+    @*<div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Typography</a>
+            </li>
+        </ul>
+    </div>*@
+    <div class="row">
+        <div class="box col-md-9" style="margin-left:12.5%">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-adjust"></i> Chi tiết sản phẩm</h2>
+                    <div class="box-icon">
+                       
+                        <a href="@Url.Action("Sanpham","AdminSite")" class="btn btn-close btn-round btn-default">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                   
+                    <div class="row " >
+                        <div class="col-md-4">
+                            <h4 style="text-align:center">Hình ảnh</h4>
+                            <img style="width:200px;height:auto" src="/Content/web/img/@Model.HINHANH" />
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-7">
+                                <h4 style="text-align:center">Thông tin</h4>
+                                <p>
+                                    <strong> Mã sản phẩm:</strong>
+                                    @Model.MASP
+                                   
+                                </p>
+                                <p>
+                                    <strong> Tên sản phẩm:</strong>
+                                    @Model.TENSP
+
+                                </p>
+                                <p>
+                                    <strong> Loại sản phẩm:</strong>
+                                    @Model.TENLOAI
+
+                                </p>
+                                <p>
+                                    <strong> Hãng sản phẩm:</strong>
+                                    @Model.TENHANG
+
+                                </p>
+                                <p>
+                                    <strong> Đơn giá:</strong>
+                                    @string.Format("{0:0,0}",@Model.DONGIA)
+
+                                </p>
+                                @if(@Model.TINHTRANG==true)
+                                    {
+                                    
+                                    <p>
+                                        <strong> Tình trạng:</strong>
+                                        Còn hàng
+                                    </p>
+                                 }
+                                 else
+                                {
+                                    <p>
+                                        <strong> Tình trạng:</strong>
+                                        Hết hàng
+                                    </p>
+                                }
+
+                                <p>
+                                    <strong> Mô tả:</strong>
+
+                                    @Html.Raw(Model.MOTA)
+                                </p>
+                            </div>
+                        </div>
+                    <!--/row -->                                
+                </div>
+            </div>
+        </div>
+        <!--/span-->     
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->

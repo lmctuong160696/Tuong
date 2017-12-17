@@ -1,0 +1,86 @@
+﻿@using ProWeb.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+}
+
+<div class="col-md-12 col-sm-12">
+    <h1 style="text-align:center">Thông tin giỏ hàng</h1>
+    <div class="goods-page">
+        <div class="goods-data clearfix">
+            <div class="table-wrapper-responsive">
+                <table summary="Shopping cart">
+                    <tr>
+                        <th class="goods-page-image">Hình ảnh</th>
+                        <th class="goods-page-description">Thông tin</th>                 
+                        <th class="goods-page-price">Số lượng</th>
+                        <th class="goods-page-price">Đơn giá</th>
+                        <th class="goods-page-price">Tổng giá</th>
+                        <th style="text-align:center" class="goods-page-total" colspan="2">Tùy chọn</th>
+                    </tr>
+                    @foreach(var item in Model)
+                    {
+                    <tr>
+                        <td class="goods-page-image">
+                            <a href="javascript:;"><img src="/Content/web/img/@item.hinhanh" alt="Berry Lace Dress"></a>
+                        </td>
+                        <td class="goods-page-description">
+                            <h3><a href="javascript:;">@item.tensp</a></h3>
+                            <p><strong>Loại</strong>@item.loaisp</p>
+                            <p><strong>Thương hiệu</strong> @item.thuonghieu</p>
+                           
+                        </td>
+                       @using (Html.BeginForm("CapnhatGiohang", "_Home", new { @id = item.masp }))
+                        {
+                        <td class="goods-page-quantity">
+                            <div class="product-quantity">
+                                @*<input name="txtsoluong" @*id="product-quantity" type="text" value="@item.soluong" @*readonly class="form-control input-sm">*@
+                                <input name="txtsoluong" type="number" value="@item.soluong" style="width: 50px; height: 38px; color: #647484; padding: 5px; border: none; background: #edeff1 !important; font: 300 23px 'Open Sans', sans-serif; "/>
+                            </div>
+                        </td>
+                       
+                        <td class="goods-page-price">
+                            <strong>@item.giasp<span> VNĐ</span></strong>
+                        </td>
+                        <td class="goods-page-total">
+                            <strong>@item.thanhtien<span> VNĐ</span></strong>
+                        </td>
+                        <td class="del-goods-col" style="width:20px">
+                            <button class="btn btn-default" type="submit">Cập nhật</button>
+                        </td>
+                       }
+                        <td class="del-goods-col" style="width:20px">
+                            <a class="btn btn-primary" href="@Url.Action("XoaGiohang", "_Home", new { id = @item.masp })">Xóa</a>
+                        </td>
+                    </tr>
+                    }
+                  
+                </table>
+            </div>
+            <div class="shopping-total">
+                <ul>
+                    <li>
+                        <em>Giá tiền</em>
+                        <strong class="price">@ViewBag.Tongtien<span> VNĐ</span></strong>
+                    </li>
+                    <li>
+                        <em>Tổng số lượng</em>
+                        <strong class="price">@ViewBag.Tongsoluong<span></span></strong>
+                    </li>
+                    <li>
+                        <em>Khuyến mãi</em>
+                        <strong class="price">0<span> VNĐ</span></strong>
+                    </li>
+                    <li class="shopping-total-price">
+                        <em>Tổng tiền</em>
+                        <strong class="price">@ViewBag.Tongtien<span> VNĐ</span></strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       
+        <a style="margin-bottom:10px" class="btn btn-primary" href="@Url.Action("DatHang","_Home")">Đặt hàng <i class="fa fa-check"></i></a>
+    </div>
+</div>
+

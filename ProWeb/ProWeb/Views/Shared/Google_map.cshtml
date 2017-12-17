@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Google_map";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+}
+
+
+
+
+
+<div class="main">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Store</a></li>
+            <li class="active">Cool green dress with red bell</li>
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN SIDEBAR -->
+            <div class="sidebar col-md-3 col-sm-4">
+                @Html.Action("Brand", "_Home")
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123600824653!2d106.71265711418272!3d10.801844361679223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2zxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hyBUUC5IQ00gKEhVVEVDSCk!5e0!3m2!1svi!2sin!4v1508664071253" width="850" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+        <!-- BEGIN SIMILAR PRODUCTS -->
+        
+        <!-- END SIMILAR PRODUCTS -->
+    </div>
+</div>
+
+

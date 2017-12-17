@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Themloai";
+    Layout = "~/Views/Shared/_index.cshtml";
+}
+
+
+<div id="content" class="col-lg-6 col-sm-6" style="margin-left:25%">
+    <!-- content starts -->
+    <div style="margin-top:20px">
+        <ul class="breadcrumb" style="background-color:white">
+            @*<li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Forms</a>
+                </li>*@
+        </ul>
+    </div>
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Thêm loại sản phẩm</h2>
+                    @*<div class="box-icon">
+                            <a href="#" class="btn btn-setting btn-round btn-default">
+                                <i class="glyphicon glyphicon-cog"></i>
+                            </a>
+                            <a href="#" class="btn btn-minimize btn-round btn-default">
+                                <i class="glyphicon glyphicon-chevron-up"></i>
+                            </a>
+                            <a href="#" class="btn btn-close btn-round btn-default">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </div>*@
+                </div>
+                <div class="box-content">
+                    <form role="form" method="post">
+                        <div class="form-group">
+                            <label style="float:left;margin-top:7.5px;margin-left:50px" for="exampleInputEmail1">Tên loại </label>
+                            <input style="margin-left:150px" name="tenloai" type="text" class="form-control" @*id="exampleInputEmail1"*@ placeholder="Nhập tên loại.." required>
+                            <p style="color:red;text-align:center">@ViewBag.tenloai</p>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label style="float:left;margin-top:7.5px;margin-left:50px" class="control-label" for="selectError">Danh mục</label>
+                            <div class="controls" >
+                                <select name="danhmuc" data-rel="chosen" style="border-radius: 5px; height: 38px; width: 40%; margin-left: 35px">
+                                    @Html.Action("Combobox_danhmuc", "AdminSite", new { id = "" })
+                                </select>
+                            </div>
+                            <h5 style="color:green;text-align:center">@ViewBag.thongbao</h5>
+                        </div>
+
+                        @*<div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>*@
+                        @*<div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Check me out
+                                </label>
+                            </div>*@
+                        <button style="margin-left:40%" type="submit" class="btn btn-primary">Đồng ý</button>
+                        <a href="@Url.Action("Loaisanpham","AdminSite")" class="btn btn-danger">Thoát</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->

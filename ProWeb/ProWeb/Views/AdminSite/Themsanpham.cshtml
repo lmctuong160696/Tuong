@@ -1,0 +1,108 @@
+﻿@*< Register Namespace="CKEditor.NET" Assembly="CKEditor.NET" TagPrefix="CKEditor" %>*@
+
+@{
+    ViewBag.Title = "Themsanpham";
+    Layout = "~/Views/Shared/_index.cshtml";
+}
+
+<style>
+    input{
+        float:right;
+        margin-right:50px;
+        margin-top:10px;
+    }
+    select {
+        float: right;
+        margin-right: 50px;
+        margin-top: 10px;
+    }
+    label{
+        margin-top:22px;
+    }
+</style>
+<div id="content" class="col-lg-6 col-sm-6" style="margin-left:25%">
+    <!-- content starts -->
+    <div style="margin-top:20px">
+        <ul class="breadcrumb" style="background-color:white">
+            @*<li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Forms</a>
+                </li>*@
+        </ul>
+    </div>
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Thêm sản phẩm</h2>
+                    <div class="box-icon">
+                           
+                            <a href="@Url.Action("Sanpham","AdminSite")" class="btn btn-close btn-round btn-default">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                            <h5 style="color:green;text-align:center">@ViewBag.Thongbaothanhcong</h5>
+                        </div>
+                </div>
+                <div class="box-content">
+                    <form role="form" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label style="float:left;margin-left:50px" for="exampleInputEmail1">Tên sản phẩm</label>
+                            <input name="tensanpham" type="text" class="form-control" @*id="exampleInputEmail1"*@ placeholder="Nhập tên sản phẩm .." required>                         
+                            
+                            <label style="float:left;margin-left:50px" class="control-label" for="selectError">Loại sản phẩm</label>                           
+                                <div class="controls">
+                                    <select name="loaisanpham" class="form-control" data-rel="chosen">
+                                        <option value=""></option>
+                                        @Html.Action("Cbb_loai", "AdminSite", new { id = "" })
+                                    </select>
+                                </div>
+                            
+
+                                             
+                            <label style="float:left;margin-left:50px" class="control-label" for="selectError">Thương hiệu</label>
+                            <div class="controls">
+                                <select name="thuonghieu" data-rel="chosen" class="form-control" required>
+                                    @Html.Action("Cbb_thuonghieu", "AdminSite", new { id = "" })
+                                </select>
+                            </div>
+                            
+                        
+                            <label style="float:left;margin-left:50px" for="exampleInputEmail1">Đơn giá</label>
+                            <input  name="giasanpham" type="text" class="form-control" @*id="exampleInputEmail1"*@ placeholder="Nhập giá .." required>
+                      
+                            <label style="float:left;margin-left:50px" class="control-label" for="selectError">Khuyến mãi</label>
+                            <div>
+                                <select name="khuyenmai" data-rel="chosen" class="form-control" required>@Html.Action("Cbb_khuyenmai", "AdminSite", new { id = "" })</select>
+                            </div>
+                           
+                       
+                            <label style="float:left;margin-left:50px" >Hình ảnh</label>                            
+                            <input  name="nhinhanh" type="file" class="form-control" @*id="exampleInputEmail1"*@ required>
+                       
+                            <p style="color:red;text-align:center">@ViewBag.thongbao</p>
+                           
+                        </div>
+                        <div class="form-group">
+                            <label style="float:left;margin-left:50px" for="exampleInputEmail1">Thông tin mô tả</label>
+                            <textarea id="mota" style="width:500px" name="mota" placeholder="Nhập mô tả..." required></textarea>
+                        </div>
+                       
+                        
+                        <button style="margin-left:40%" type="submit" class="btn btn-primary">Đồng ý</button>
+                        <a href="@Url.Action("Sanpham","AdminSite")" class="btn btn-danger">Thoát</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--/span-->
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->
+<script src="~/ckeditor/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace("mota");
+</script>

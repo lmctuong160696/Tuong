@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProWeb.Models.PROCDUCT_PRICE_MAXResult>
+<div class="col-md-9 col-sm-8">
+    <h2>Sản phẩm Khác</h2>
+    <div class="owl-carousel owl-carousel3" >
+        @foreach (var item in Model)
+        {
+            
+            <div>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                        <img src="~/Content/web/img/@item.HINHANH" class="img-responsive" alt="Berry Lace Dress">
+                        <div>
+                            <a href="~/Content/web/img/@item.HINHANH" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="@Url.Action("Product_Detail","_Home",new { id = @item.MASP })" class="btn btn-default fancybox-fast-view">View</a>
+                        </div>
+                    </div>
+                    <h3><a href="shop-item.html">@item.TENSP</a></h3>
+                    <div class="pi-price">@item.DONGIA</div>
+                    <a href="@Url.Action("ThemGiohang", "_Home", new {@id=@item.MASP,@URL=Request.Url.ToString() })" class="btn btn-default add2cart">Thêm vào giỏ</a>
+                    <div class="sticker sticker-new"></div>
+                </div>
+            </div>
+          @*#product-pop-up*@
+            @*@Html.Action("Product_Detail_Popup", "_Home", new { id = item.MASP })*@
+           
+
+        }
+        
+      
+      
+    </div>
+</div>
+
+@*@foreach (var item in Model)
+{
+    @Html.Action("Product_Detail_Popup", "_Home", new { id = item.MASP })
+}*@

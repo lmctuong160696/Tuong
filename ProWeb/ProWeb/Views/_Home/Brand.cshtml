@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ProWeb.Models.HANGSANXUAT>
+
+@*<div class="sidebar col-md-3 col-sm-4">*@
+    <ul class="list-group margin-bottom-25 sidebar-menu">
+        <li style="background-color: #F8E6E0; " class="list-group-item clearfix">THƯƠNG HIỆU</li>
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item clearfix"><a href="@Url.Action("Category_Brand","_Home",new { id = item.MAHANG})"><i class="fa fa-angle-right"></i>@item.TENHANG</a></li>
+        }
+
+
+
+
+    </ul>
+@*</div>*@
+

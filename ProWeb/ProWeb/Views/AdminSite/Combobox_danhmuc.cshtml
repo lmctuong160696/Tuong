@@ -1,0 +1,5 @@
+﻿@model IEnumerable<ProWeb.Models.DANHMUC>
+           @foreach(var item in Model)
+           {
+               <option value="@item.MADM">@item.TENDM</option>
+           }

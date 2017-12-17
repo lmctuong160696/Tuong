@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ProWeb.Models.COMBOBOX_LOAI>
+       
+@{
+    string ma = "";
+}
+@*@foreach(var item in Model)
+{
+    <option>@item.TENLOAI</option>
+}*@
+                                    @foreach(var item in Model)
+                                    {
+                                        if(ma != @item.MADM)
+                                        {
+                                             <optgroup label="@item.TENDM">
+                                            @foreach(var item1 in Model)
+                                            {
+                                                if(@item1.MADM==@item.MADM)
+                                                {
+                                                     <option value="@item1.MALOAI">@item1.TENLOAI</option>
+                                                }                                                                                               
+                                            } 
+                                        </optgroup>
+                                        ma = @item.MADM;
+                                        }       
+                                    }
